@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <generator uri="https://github.com/dorkrawk/postwave" version="0.1.3">Postwave</generator>
+  <link href="https://postwave.blog/" rel="self" type="application/atom+xml" />
+  <link href="https://postwave.blog/" />
+  <updated>2025-09-11T23:54:55-05:00</updated>
+  <id>https://postwave.blog/</id>
+  <title type="html">Postwave Blog</title>
+  <subtitle>A blog created using Postwave and Sinatra.</subtitle>
+  
+  <entry>
+    <title>Q &amp; A</title>
+    <link href="https://postwave.blog//posts/q--a" rel="alternate" type="text/html" title="Q &amp; A" />
+    <id>https://postwave.blog//posts/q--a</id>
+    <published>2025-09-10T15:12:00-05:00</published>
+    <updated>2025-09-10T15:12:00-05:00</updated>
+    <author>
+      <name>Postwave Blog</name>
+    </author>
+    <content type="html">
+      <![CDATA[<p><strong>What happens if I use the same post title on the same day?</strong></p>
+
+<p><code>postwave build</code> will handle this just fine. It will rename your files <code>yyyy-mm-dd-title.md</code> and <code>yyyy-mm-dd-title-1.md</code>.</p>
+
+<p><strong>What happens if I use non alphanumeric characters in my post title?</strong></p>
+
+<p><a href="../posts/q--a">You tell me</a></p>
+
+<p><strong>Can Postwave generate an RSS feed?</strong></p>
+
+<p>It <a href="../rss">sure can</a>!</p>
+
+<p><strong>Will updating the post title update the slug (and path) for the post?</strong></p>
+
+<p>Yep, so be careful if you're worried about an update breaking links to an old post.</p>
+
+<p><strong>Will updating the post date update the slug (and path) for the post?</strong></p>
+
+<p>Nope, but it will update the Markdown file name.</p>
+
+<p><strong>Why the name "Postwave"?</strong></p>
+
+<p>I'm a big fan of the <a href="https://bluemeanies.bandcamp.com/album/the-post-wave">Blue Meanies</a>.</p>
+
+<p><strong>Seriously, another blog engine? WHY?!</strong></p>
+
+<p>Honestly, it scratches an itch I have. I wanted to write posts in a specific way and then build them into my site, rather than have my site be bolted on to a pre-built blog. After years of hacking together similar solutions with things like <a href="https://wordpress.com/">Wordpress</a> and <a href="https://jekyllrb.com/">Jekyll</a> I just built what I wanted. Maybe other people will find it useful, too!</p>
+
+<p><strong>So who built this?</strong></p>
+
+<p><a href="https://dinosaurseateverybody.com/">Dave</a>.</p>
+
+<p>You can find me in various <a href="https://bsky.app/profile/dorkrawk.bsky.social">places</a> <a href="https://x.com/dorkrawk">online</a>.</p>
+]]>
+    </content>
+    
+    <category term="postwave" />
+    
+  </entry>
+  
+  <entry>
+    <title>How To Display Posts</title>
+    <link href="https://postwave.blog//posts/how-to-display-posts" rel="alternate" type="text/html" title="How To Display Posts" />
+    <id>https://postwave.blog//posts/how-to-display-posts</id>
+    <published>2025-03-13T11:16:00-05:00</published>
+    <updated>2025-03-13T11:16:00-05:00</updated>
+    <author>
+      <name>Postwave Blog</name>
+    </author>
+    <content type="html">
+      <![CDATA[<p>Now that you've <a href="../posts/how-to-write-posts">written some posts</a> you can display them on your site by using Postwave's built in Ruby client.</p>
+
+<p><strong>Start By Including the Client In Your Project</strong></p>
+
+<pre><code class="ruby">require 'postwave/client'
+</code></pre>
+
+<p><strong>Then Create a Postwave Client</strong></p>
+
+<pre><code class="ruby">postwave_client = Postwave::Client.new("path/to/config/postwave.yaml")
+</code></pre>
+
+<p>If you'd like to preload all the posts:</p>
+
+<pre><code class="ruby">postwave_client = Postwave::Client.new("path/to/config/postwave.yaml", preload: true)
+</code></pre>
+
+<p><strong>You Can Get a Single Post</strong></p>
+
+<p>Pass in the stub (the filename without the date and '.md') for the post.</p>
+
+<pre><code class="ruby">post = postwave_client.post("my-great-post")
+
+# <Postwave::Post title="My Great Post", date=<Time ...>, tags=["tag1"], body="bla bla bla">
+
+puts post.title
+# "My Great Post"
+puts post.body
+# "bla bla bla"
+puts post.body_html # uses Redcarpt to convert body Markdown to HTML
+# "<p>bla bla bla</p>"
+puts post.body_preview(8) # an HTML free preview of the post with optional `limit` and `ellipsis` params
+# "bla bla..." 
+</code></pre>
+
+<p><strong>Or Get a Collection of Posts</strong></p>
+
+<p>This will give you a list of posts for displaying on a page.</p>
+
+<p>You can also filter by tags and specify offsets and limits (useful for pagination).</p>
+
+<pre><code class="ruby">posts = postwave_client.posts
+
+# [<Postwave::Post ...>, <Postwave::Post ...>, ...]
+
+tagged_posts = postwave_client.posts(tag: "lizards")
+
+page2_posts = postwave_client.posts(offset: 10, limit: 10)
+</code></pre>
+
+<p>Posts will be in reverse chronological order.</p>
+
+<p><strong>Or Lots of Other Things!</strong></p>
+
+<p>Check out the <a href="https://github.com/dorkrawk/postwave?tab=readme-ov-file#displaying-posts">documentation</a> to learn about all the ways to use the Postwave client and check out the code for <a href="https://github.com/dorkrawk/postwave-site">this site</a> to see how a full working blog is implemented with Postwave.</p>
+]]>
+    </content>
+    
+    <category term="postwave" />
+    
+    <category term="code" />
+    
+  </entry>
+  
+  <entry>
+    <title>How To Write Posts</title>
+    <link href="https://postwave.blog//posts/how-to-write-posts" rel="alternate" type="text/html" title="How To Write Posts" />
+    <id>https://postwave.blog//posts/how-to-write-posts</id>
+    <published>2025-02-24T12:43:00-06:00</published>
+    <updated>2025-02-24T12:43:00-06:00</updated>
+    <author>
+      <name>Postwave Blog</name>
+    </author>
+    <content type="html">
+      <![CDATA[<p>Ok, you have Postwave <a href="../posts/how-to-set-up-postwave">set up</a> in your project and now you want to start writing!</p>
+
+<p><strong>Step 1: Run postwave post</strong></p>
+
+<pre><code>> postwave post
+</code></pre>
+
+<p>Run this command in your terminal (from within your Postwave project's directory).</p>
+
+<p>This will generate at new Markdown file in the <code>_posts/</code> directory. The title is set to a random string of characters.  The filename will be the current timestamp.  This will eventually be overwritten by the <code>build</code> command, so don't worry too much about it. The file will have a general structure like this:</p>
+
+<pre><code class="markdown">title: FNJEXWZP
+date: 2025-01-01
+tags:
+
+Start writing!
+</code></pre>
+
+<p>Tags should be comma separated(<code>tag1, tag2, multiword tags work, tag3</code>).</p>
+
+<p>You can keep a post in "draft" status (meaning it won't get processed or added to the index) by adding <code>draft: true</code> to the top section of the post.</p>
+
+<pre><code class="markdown">title: This Post Isn't Quite Ready
+date: 2025-01-01
+tags:
+draft: true
+</code></pre>
+
+<p><strong>Step 2: Write your post!</strong></p>
+
+<p>Now for the good part! You can actually write your post!</p>
+
+<p>Just leave the post metadata information alone and get to work on your brilliant prose.</p>
+
+<p><strong>Step 3: Build the Blog</strong></p>
+
+<pre><code>> postwave build
+</code></pre>
+
+<p>This will "build" the blog. Do this after you've finished writing and you're ready to publish. This involves:</p>
+
+<ul>
+<li>regenerating the <code>/meta/index.csv</code> file</li>
+<li>generating slugs for each posts based on the post title and ensuring that there are no duplicate slugs</li>
+<li>changing the post file names to match <code>yyyy-dd-mm-slug.md</code></li>
+<li>updating the <code>/meta/summary.yaml</code></li>
+<li>creating and updating tag files (which will be <code>/tags/[tag-name].yaml</code> files for each tag)</li>
+<li>updating the <code>/meta/rss</code> file to create a feed for your posts</li>
+</ul>
+
+<p>Now you're ready to <a href="../posts/how-to-display-posts">display your posts</a>.</p>
+]]>
+    </content>
+    
+    <category term="postwave" />
+    
+  </entry>
+  
+  <entry>
+    <title>How To Set Up Postwave</title>
+    <link href="https://postwave.blog//posts/how-to-set-up-postwave" rel="alternate" type="text/html" title="How To Set Up Postwave" />
+    <id>https://postwave.blog//posts/how-to-set-up-postwave</id>
+    <published>2025-01-17T22:57:00-06:00</published>
+    <updated>2025-01-17T22:57:00-06:00</updated>
+    <author>
+      <name>Postwave Blog</name>
+    </author>
+    <content type="html">
+      <![CDATA[<p>To start using Postwave you first need to set it up within the project it will be a part of.</p>
+
+<p><strong>Step 1: Install the gem</strong></p>
+
+<pre><code class="bash">> gem install postwave
+</code></pre>
+
+<p><strong>Step 2: Run postwave new</strong></p>
+
+<pre><code>> postwave new
+</code></pre>
+
+<p>Run this from the root directory of your project. As a part of this set up you will be asked for a few things: </p>
+
+<pre><code>- name: the name of the blog
+- url: the base url of the site (e.g. `https://yoursite.com` )
+- posts path: the subdirectory on the site that your posts will be in (e.g. `posts` on this site )
+- description: a description of the blog
+</code></pre>
+
+<p>One of the main areas this information will be used in is RSS feed generation.</p>
+
+<p>When completed this command will create a <code>postwave.yaml</code> config file in the current directory and a <code>/_posts/</code> directory. This is where you will write your posts.</p>
+
+<p>Here is the directory structure that will be created:</p>
+
+<pre><code>|- _posts/
+|  |- meta/
+|     |- tags/
+|     |- index.csv
+|     |- summary.yaml
+postwave.yaml
+</code></pre>
+
+<p><code>_posts/</code>: This is where you write all your posts in Markdown</p>
+
+<p><code>_posts/meta/tags/</code>: This will contain files for every tag your define in your posts</p>
+
+<p><code>_posts/meta/index.csv</code>: This will contain an ordered list of all the posts</p>
+
+<p><code>_posts/meta/summary.yaml</code>: This file will contain some summary information about the posts. Total count, etc.</p>
+
+<p><code>postwave.yaml</code>: The config file for Postwave.</p>
+
+<p><strong>Step 3: Update Your Configs</strong></p>
+
+<p>If you don't have the information at the time of set up or need to change anything you can always update the <code>postwave.yaml</code> file.</p>
+
+<p>Great! Now you're ready to start <a href="../posts/how-to-write-posts">writing posts</a>!</p>
+]]>
+    </content>
+    
+    <category term="postwave" />
+    
+  </entry>
+  
+  <entry>
+    <title>What Is Postwave For?</title>
+    <link href="https://postwave.blog//posts/what-is-postwave-for" rel="alternate" type="text/html" title="What Is Postwave For?" />
+    <id>https://postwave.blog//posts/what-is-postwave-for</id>
+    <published>2024-01-17T22:57:00-06:00</published>
+    <updated>2024-01-17T22:57:00-06:00</updated>
+    <author>
+      <name>Postwave Blog</name>
+    </author>
+    <content type="html">
+      <![CDATA[<p><strong>Postwave is for people who want to build their own website...</strong></p>
+
+<p><strong>And post things to that site...</strong></p>
+
+<p><strong>And write those posts in Markdown.</strong></p>
+
+<p>Postwave is great if you want your posts to fit seamlessly into a site you're building, rather than try to customize or theme a blog to turn into your site.</p>
+
+<p>Authoring in Postwave centers around your terminal and your text editor. New posts are started with a <code>postwave post</code> command, which creates a new Markdown file for you to start writing. Because posts are written as Markdown files, so there's no need for a database.</p>
+
+<p>After writing your posts in Markdown you can then display them however you'd like on your site through the built in Postwave Ruby client. This is where Postwave differs from static blog engines like <a href="https://jekyllrb.com/">Jekyll</a> or <a href="https://gohugo.io/">Hugo</a> which take the Markdown posts and generate a site for you.</p>
+
+<p>With Postwave, once you've written your posts, it's up to you how you'd like to incorporate them into your site. For example, a page to display a post might look like this: </p>
+
+<pre><code class="erb"><div id="post">
+  <h2><%= @post.title %></h2>
+  <div class="post-meta">
+    <div class="post-date"><%= @post.date.strftime("%B %e, %Y") %></div>
+    <div class="post-tags">
+      <% @post.tags.each do |tag| %>
+        <a href="/tags/<%= tag %>"><%= tag %></a>
+      <% end %>
+    </div>
+  </div>
+  <div class="post-content">
+    <%= @post.body_html %>
+  </div>
+</div>
+</code></pre>
+
+<p><strong>Postwave is for writing posts for YOUR site.</strong></p>
+]]>
+    </content>
+    
+    <category term="postwave" />
+    
+    <category term="code" />
+    
+  </entry>
+  
+  <entry>
+    <title>Welcome To Postwave!</title>
+    <link href="https://postwave.blog//posts/welcome-to-postwave" rel="alternate" type="text/html" title="Welcome To Postwave!" />
+    <id>https://postwave.blog//posts/welcome-to-postwave</id>
+    <published>2022-09-15T15:18:00-05:00</published>
+    <updated>2022-09-15T15:18:00-05:00</updated>
+    <author>
+      <name>Postwave Blog</name>
+    </author>
+    <content type="html">
+      <![CDATA[<p><strong>Welcome!</strong></p>
+
+<p>Postwave is a flat file based blogging system that lets you write posts staticly and display them dynamically.</p>
+
+<p>This blog is meant to serve as an example implementation to help you understand how to work with Postwave. Check out the code for this site on <a href="https://github.com/dorkrawk/postwave-site">GitHub</a> and feel free to use it as the basis for your own sites.</p>
+
+<p>To learn more check out the <a href="https://github.com/dorkrawk/postwave">Postwave repo</a></p>
+
+<p>If you want to just start using it, it's available on <a href="https://rubygems.org/gems/postwave">Rubygems</a>.</p>
+
+<p>🌊</p>
+]]>
+    </content>
+    
+    <category term="postwave" />
+    
+  </entry>
+  
+</feed>

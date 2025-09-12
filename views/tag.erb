@@ -1,0 +1,21 @@
+<div class="tag-header">
+  <h2 class="tag-title">
+    <%= @tag_posts.length %> post<%= @tag_posts.length == 1 ? '' : 's' %> with tag: 
+    <span class="tag-title-tags"><%= @tag %><span> 
+  </h2>
+</div>
+
+<div id="post-index">
+  <ul>
+      <% @tag_posts.each do |post| %>
+        <li>
+          <div class="post-title">
+            <a href="/posts/<%= post.slug %>"><%= post.title %></a> 
+          </div>
+          <div class="post-date">
+            <%= post.date.strftime("%B %e, %Y") %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+</div>

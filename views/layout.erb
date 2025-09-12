@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= @page_title ? "#{@page_title} | Postwave" : "Postwave" %></title>
+    <meta name="description" content="This is a blog built with Postwave.">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%2210 0 100 100%22><text y=%22.90em%22 font-size=%2290%22>🌊</text></svg>">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1><a href="/">🌊 Postwave</a></h1>
+        <nav>
+          <a href="/">Home</a>
+          <a href="/blog">Posts</a>
+          <a href="/archive">Archive</a>
+          <a href="/links">Links</a>
+          <a href="/rss" title="RSS Feed">RSS</a>
+        </nav>
+      </header>
+      
+      <main class="main">
+        <%= yield %>
+      </main>
+      
+      <footer>
+        <div>
+          Powered by <a href="https://github.com/dorkrawk/postwave">Postwave</a> 🌊
+        </div>
+        <div class="render-time">
+          Rendered in <%= @render_time %> seconds
+        </div>
+        <div>
+          <a href="../rss" class="rss" title="RSS Feed">RSS</a> is not dead!<a href="../rss" class="rss" 
+        title="RSS Feed"> <i class="fa fa-rss fa-1x rss"></i></a>
+        </div>
+        <div>
+          Check out the <a href="https://github.com/dorkrawk/postwave-site" title="code for this site on GitHub!">source code</a> for this site! <i class="fa fa-code fa-1x"></i>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

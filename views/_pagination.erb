@@ -1,0 +1,15 @@
+<div class="pagination">
+  <% if !pagination.prev_page.nil? %>
+    <a href="/blog/<%= pagination.prev_page %>" class="prev">← Previous</a>
+  <% else %>
+    <span class="disabled">← Previous</span>
+  <% end %>
+  
+  <span class="current">Page <%= pagination.current_page %> of <%= pagination.total_pages %></span>
+  
+  <% if !pagination.next_page.nil? %>
+    <a href="/blog/<%= pagination.next_page %>" class="next">Next →</a>
+  <% else %>
+    <span class="disabled">Next →</span>
+  <% end %>
+</div>

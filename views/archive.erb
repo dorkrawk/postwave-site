@@ -1,0 +1,22 @@
+<% @archive.each do |year, months| %>
+  <div class="archive-year">
+    <h2 class="year"><%= year %></h2>
+    <% months.each do |month, posts| %>
+      <div class="archive-month">
+        <h3 class="month"><%= Date::MONTHNAMES[month] %></h3>
+        <ul class="archive-posts">
+          <% posts.each do |post| %>
+            <li>
+              <div class="post-title archive-post-title">
+                <a href="/posts/<%= post.slug %>"><%= post.title %></a> 
+              </div>
+              <div class="post-date archive-post-date">
+                <%= post.date.strftime("%B %e, %Y") %>
+              </div>
+            </li>
+          <% end %> 
+        </ul>
+      </div>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,5 @@
+---
+name: Postwave Blog
+url: https://postwave.blog/
+posts_path: posts
+description: A blog created using Postwave and Sinatra.

@@ -1,0 +1,41 @@
+<div class="home-content">
+  <div>
+    <h2>This is a blog built with Postwave.</h2>
+    <p>
+      <a href="https://github.com/dorkrawk/postwave" title="Postwave">Postwave</a> is an opinionated flat-file based based blog engine.
+    </p>
+    <p>
+      Posts are written as Markdown files and then displayed dynamically in a simple <a href="https://sinatrarb.com/">Sinatra</a> site using the built in <a href="https://github.com/dorkrawk/postwave?tab=readme-ov-file#displaying-posts" title="Postwave Ruby client">Postwave Ruby Client</a>. Check out the <a href="https://github.com/dorkrawk/postwave-site" title="code for this site on GitHub">code</a> for this site to see how to use Postwave in a real world situation.
+    </p>
+    <p>
+      Learn more about <a href="../posts/what-is-postwave-for" title="What Is Postwave For?">what Postwave is</a> and <a href="../posts/how-to-set-up-postwave" title="How To Set Up Postwave">get started</a> using Postwave!
+    </p>
+  </div>
+  <div id="post-index">
+    <h3 class="right">Recent Posts</h3>
+    <ul>
+      <% @post_index.each do |post| %>
+        <li>
+          <div class="post-title">
+            <a href="/posts/<%= post.slug %>"><%= post.title %></a> 
+          </div>
+          <div class="post-date">
+            <%= post.date.strftime("%B %e, %Y") %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+    <div class="see-all-posts">
+      <a href="/blog">View All Posts →</a>
+    </div>
+  </div>
+  
+  <div id="tags">
+    <h3 class="right">Tags</h3>
+    <ul>
+      <% @tags.each do |tag| %>
+        <li><a href="/tags/<%= tag %>"><%= tag %></a></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
