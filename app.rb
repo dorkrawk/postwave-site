@@ -22,7 +22,8 @@ class App < Sinatra::Base
   # for showing paginated lists of posts
   get '/blog/?:page?' do
     @render_time = time do
-      @page = params[:page].to_i || 1
+      @page = params[:page] || 1
+      @page = @page.to_i
       @page_title = "Posts"
       offset = (@page - 1) * POSTS_PER_PAGE
 
