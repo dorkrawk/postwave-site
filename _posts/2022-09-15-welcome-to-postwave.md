@@ -13,5 +13,3 @@ This blog is meant to serve as an example implementation to help you understand 
 To learn more check out the [Postwave repo](https://github.com/dorkrawk/postwave)
 
 If you want to just start using it, it's available on [Rubygems](https://rubygems.org/gems/postwave).
-
-🌊

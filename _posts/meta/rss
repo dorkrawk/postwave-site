@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <generator uri="https://github.com/dorkrawk/postwave" version="0.1.3">Postwave</generator>
-  <link href="https://postwave.blog" rel="self" type="application/atom+xml" />
-  <link href="https://postwave.blog" />
-  <updated>2025-09-12T15:54:22-05:00</updated>
-  <id>https://postwave.blog</id>
+  <link href="https://postwave.blog/" rel="self" type="application/atom+xml" />
+  <link href="https://postwave.blog/" />
+  <updated>2026-01-06T17:58:08-06:00</updated>
+  <id>https://postwave.blog/</id>
   <title type="html">Postwave Blog</title>
   <subtitle>A blog created using Postwave and Sinatra.</subtitle>
   
   <entry>
-    <title>Q &amp; A</title>
-    <link href="https://postwave.blog/posts/q--a" rel="alternate" type="text/html" title="Q &amp; A" />
-    <id>https://postwave.blog/posts/q--a</id>
+    <title>Q & A</title>
+    <link href="https://postwave.blog//posts/q--a" rel="alternate" type="text/html" title="Q & A" />
+    <id>https://postwave.blog//posts/q--a</id>
     <published>2025-09-10T15:12:00-05:00</published>
     <updated>2025-09-10T15:12:00-05:00</updated>
     <author>
@@ -60,8 +60,8 @@
   
   <entry>
     <title>How To Display Posts</title>
-    <link href="https://postwave.blog/posts/how-to-display-posts" rel="alternate" type="text/html" title="How To Display Posts" />
-    <id>https://postwave.blog/posts/how-to-display-posts</id>
+    <link href="https://postwave.blog//posts/how-to-display-posts" rel="alternate" type="text/html" title="How To Display Posts" />
+    <id>https://postwave.blog//posts/how-to-display-posts</id>
     <published>2025-03-13T11:16:00-05:00</published>
     <updated>2025-03-13T11:16:00-05:00</updated>
     <author>
@@ -134,8 +134,8 @@ page2_posts = postwave_client.posts(offset: 10, limit: 10)
   
   <entry>
     <title>How To Write Posts</title>
-    <link href="https://postwave.blog/posts/how-to-write-posts" rel="alternate" type="text/html" title="How To Write Posts" />
-    <id>https://postwave.blog/posts/how-to-write-posts</id>
+    <link href="https://postwave.blog//posts/how-to-write-posts" rel="alternate" type="text/html" title="How To Write Posts" />
+    <id>https://postwave.blog//posts/how-to-write-posts</id>
     <published>2025-02-24T12:43:00-06:00</published>
     <updated>2025-02-24T12:43:00-06:00</updated>
     <author>
@@ -202,8 +202,8 @@ draft: true
   
   <entry>
     <title>How To Set Up Postwave</title>
-    <link href="https://postwave.blog/posts/how-to-set-up-postwave" rel="alternate" type="text/html" title="How To Set Up Postwave" />
-    <id>https://postwave.blog/posts/how-to-set-up-postwave</id>
+    <link href="https://postwave.blog//posts/how-to-set-up-postwave" rel="alternate" type="text/html" title="How To Set Up Postwave" />
+    <id>https://postwave.blog//posts/how-to-set-up-postwave</id>
     <published>2025-01-17T22:57:00-06:00</published>
     <updated>2025-01-17T22:57:00-06:00</updated>
     <author>
@@ -268,8 +268,8 @@ postwave.yaml
   
   <entry>
     <title>What Is Postwave For?</title>
-    <link href="https://postwave.blog/posts/what-is-postwave-for" rel="alternate" type="text/html" title="What Is Postwave For?" />
-    <id>https://postwave.blog/posts/what-is-postwave-for</id>
+    <link href="https://postwave.blog//posts/what-is-postwave-for" rel="alternate" type="text/html" title="What Is Postwave For?" />
+    <id>https://postwave.blog//posts/what-is-postwave-for</id>
     <published>2024-01-17T22:57:00-06:00</published>
     <updated>2024-01-17T22:57:00-06:00</updated>
     <author>
@@ -318,8 +318,8 @@ postwave.yaml
   
   <entry>
     <title>Welcome To Postwave!</title>
-    <link href="https://postwave.blog/posts/welcome-to-postwave" rel="alternate" type="text/html" title="Welcome To Postwave!" />
-    <id>https://postwave.blog/posts/welcome-to-postwave</id>
+    <link href="https://postwave.blog//posts/welcome-to-postwave" rel="alternate" type="text/html" title="Welcome To Postwave!" />
+    <id>https://postwave.blog//posts/welcome-to-postwave</id>
     <published>2022-09-15T15:18:00-05:00</published>
     <updated>2022-09-15T15:18:00-05:00</updated>
     <author>
@@ -335,8 +335,6 @@ postwave.yaml
 <p>To learn more check out the <a href="https://github.com/dorkrawk/postwave">Postwave repo</a></p>
 
 <p>If you want to just start using it, it's available on <a href="https://rubygems.org/gems/postwave">Rubygems</a>.</p>
-
-<p>🌊</p>
 ]]>
     </content>
     
