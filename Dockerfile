@@ -37,4 +37,4 @@ COPY --chown=ruby:ruby . .
 
 # Start the server
 EXPOSE 3000
-CMD ["bundle", "exec", "puma", "-p", "3000", "-b", "tcp://0.0.0.0:3000"]
+CMD ["sh", "-lc", "bundle exec puma -b tcp://0.0.0.0:${PORT:-3000} config.ru"]
