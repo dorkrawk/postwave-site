@@ -9,8 +9,8 @@
   <subtitle>A blog created using Postwave and Sinatra.</subtitle>
   
   <entry>
-    <title>Q & A</title>
-    <link href="https://postwave.blog//posts/q--a" rel="alternate" type="text/html" title="Q & A" />
+    <title>Q &amp; A</title>
+    <link href="https://postwave.blog//posts/q--a" rel="alternate" type="text/html" title="Q &amp; A" />
     <id>https://postwave.blog//posts/q--a</id>
     <published>2025-09-10T15:12:00-05:00</published>
     <updated>2025-09-10T15:12:00-05:00</updated>
